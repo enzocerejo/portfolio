@@ -113,11 +113,11 @@ footer .in{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 <tbody>
 <tr>
 <td>Duration</td>
-<td>5 days (25 → 29 October 2026)</td>
+<td>9 days (25 October → 2 November 2026)</td>
 </tr>
 <tr>
 <td>Versions</td>
-<td>v1.0 → v1.9</td>
+<td>v1.0 → v1.9.2</td>
 </tr>
 <tr>
 <td>Commands</td>
@@ -133,7 +133,7 @@ footer .in{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 </tr>
 <tr>
 <td>Security</td>
-<td>5 audits, more than 45 points fixed, 0 secrets published</td>
+<td>6 audits including a pentest, more than 50 points fixed, 0 secrets published</td>
 </tr>
 </tbody>
 </table></div></div>
@@ -142,7 +142,7 @@ footer .in{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 <section class="chap" id="ch-01-contexte"><p class="eyebrow">Chapter 1</p><h2>Context and goals</h2>
 <h2 id="ch-01-contexte-the-starting-point">The starting point</h2>
 <p><strong>Cyber</strong> is a Discord bot created by <strong>Enzo Cerejo</strong>, a student in <strong>BTS CIEL</strong> (Cybersecurity, IT and Networks, Electronics), IT and Networks option. The project came from a simple observation: a Discord server often stacks five or six different bots (one for tickets, one for moderation, one for levels, one for giveaways…). Each has its own permissions, its own dashboard, its own outages.</p>
-<p>The idea: <strong>a single free bot that replaces all the others</strong>, plus a learning module to revise networking at <strong>CCNA</strong> level, which fits Enzo's training.</p>
+<p>The idea: <strong>a single free bot that replaces all the others</strong>. On top of that, a small optional module, the <strong>Academy</strong>, helps revise networking at <strong>CCNA</strong> level. It grew out of Enzo's passion for network infrastructure, in line with his training.</p>
 <h2 id="ch-01-contexte-the-goals">The goals</h2>
 <div class="tw"><table>
 <thead>
@@ -158,11 +158,11 @@ footer .in{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 </tr>
 <tr>
 <td>Modular</td>
-<td>Each server only turns on what it needs (<strong>Community</strong> and <strong>Academy</strong> modules)</td>
+<td>Each server only turns on what it needs (a <strong>Community + Security</strong> base, and modules to install such as the <strong>Academy</strong>)</td>
 </tr>
 <tr>
-<td>Educational</td>
-<td>CCNA lessons, quizzes, glossary, daily challenge, network tools</td>
+<td>Educational (optional)</td>
+<td>CCNA lessons, quizzes, glossary, daily challenge, network tools, grouped since 30 October into an optional <strong>Academy</strong> module, built out of passion</td>
 </tr>
 <tr>
 <td>Easy to configure</td>
@@ -180,7 +180,7 @@ footer .in{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 </table></div>
 <h2 id="ch-01-contexte-the-long-term-vision-cartridges">The long-term vision: "cartridges"</h2>
 <p>Enzo summed up his vision like this: a server asks for a custom module, Enzo builds it, then gives the server a <strong>unique ID</strong>. The administrator enters it in the panel ("Add a module") and Cyber installs the module, like the cards inserted into <strong>Baymax</strong> in <em>Big Hero 6</em>.</p>
-<p>At the time of writing, this feature is <strong>announced as "Coming soon"</strong> in the panel and in the bot's bio: it is not coded yet. The Community and Academy modules, however, can be turned on per server.</p>
+<p>At the time of writing, this feature is <strong>announced as "Coming soon"</strong> in the panel and in the bot's bio: it is not coded yet. The panel's "Public modules" tab, with its ratings and search, is already ready to host them.</p>
 <h2 id="ch-01-contexte-working-method">Working method</h2>
 <p>The project was carried out with the help of <strong>Claude (Anthropic)</strong>, used as developer and tutor:</p>
 <ul>
@@ -410,6 +410,14 @@ footer .in{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 <strong>18:06</strong> · The mini PC is chosen for good: an HP EliteDesk 800 G5 Mini with 16 GB of RAM, for €220.
 <strong>18:12</strong> · I ask to keep feeding this documentation with the new features. 📘</p>
 <p>🧠 The lesson of the day: when several projects move forward at once, the most important thing is not speed, it's the <strong>order</strong> in which you install, with a backup at every step.</p>
+<h3 id="ch-02-carnet-de-bord-evening-hardening-and-a-purchase-that-ge">Evening: hardening, and a purchase that gets complicated</h3>
+<p><strong>18:31</strong> · 🛠️ Clean-up and a last check of the public panel: no flaws, but three hardening steps. The login cookie is locked to <code>panel.cyberbot.fr</code>, <code>http://</code> automatically redirects to <code>https://</code>, and the waiting page also accepts <code>www.cyberbot.fr</code>. The old demo panel and unused images are removed from the website (PR #13). Everyone is logged out once, which is normal.
+<strong>22:40</strong> · ⚠️ <em>Human problem</em>: the seller of the mini PC chosen in the afternoon wants to be paid by <strong>PayPal "friends and family"</strong>, outside leboncoin. 💡 I drop the listing: this payment method doesn't protect the buyer and it is a classic scam technique. New ranking, with a message ready to send to another seller.
+<strong>22:43</strong> · ⚠️ I had planned to put a <strong>DDR5</strong> memory stick I already own into the mini PC. 💡 EliteDesk G5s only take <strong>DDR4</strong>: the stick physically doesn't fit. It can be sold to fund a DDR4 stick.
+🧠 Before buying, check that every part is compatible, and never leave the platform's secure payment.
+<strong>22:52</strong> · In Cloudflare, I turn on <strong>Always Use HTTPS</strong> and <strong>Bot Fight Mode</strong>. "All done."
+<strong>23:00</strong> · 🛠️ New permanent invite link for the support server, replaced everywhere: bot, bio, <code>/help</code>, website (PR #14).
+<strong>Around 23:00</strong> · On the support server, I delete the "Unverified" role: everyone sees the channels, but only verified members can write.</p>
 <hr />
 <h2 id="ch-02-carnet-de-bord-friday-30-october-v1-9-clearer-for-every">Friday 30 October: v1.9, clearer for everyone</h2>
 <p>A long list in one go, with one watchword: "also check all the consistency shown on the dashboard and on the website".</p>
@@ -426,6 +434,33 @@ footer .in{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 <li>🌐 <strong>Bilingual channels</strong>: a 🇬🇧 English / 🇫🇷 Français button under Cyber's messages, which switches the message's language in place.</li>
 </ul>
 <p>⚠️ <em>Problem</em>: when command names switched to English, a text that mentioned several commands on the same line only translated the first one. 💡 Fixed and checked across all the texts of the bot, the panel and the website.</p>
+<p>And all day, in parallel:</p>
+<ul>
+<li>🛠️ <strong>Tickets</strong>: several staff roles can now see tickets (up to 10).</li>
+<li>🛠️ <strong>Two-mode verification</strong>: channels are either <strong>hidden</strong> from unverified members, or visible as <strong>read-only</strong>. The panel sets the permissions of <code>@everyone</code> and of the verified role itself, without ever granting a dangerous right.</li>
+<li>💡 Idea dropped: automatically giving an "I use Cyber" role to people who installed Cyber on their account. ⚠️ Discord doesn't provide the list of installations on an account, so it's impossible. The code is removed.</li>
+<li>🛠️ <strong>20:33</strong> · The support server becomes <strong>a single bilingual server</strong> again: 🇫🇷 / 🇬🇧 roles that are only informative, channel names in both languages, and both sets of rules in the same channel. The rules button gives the verified role and answers in the language of the rules that were clicked.</li>
+<li>🛠️ <strong>Around 23:00</strong> · Panel option "Reply in each member's language": Cyber looks, in order, at the member's <code>/language</code> choice, their language role, their Discord language, then the server's or channel's language.</li>
+</ul>
+<h2 id="ch-02-carnet-de-bord-saturday-31-october-the-real-cause-of-th">Saturday 31 October: the real cause of the incident, and a pentest</h2>
+<p><strong>12:09 → 12:16</strong> · 🛠️ Support server: the "Server Guide" resources and a French and English topic for each of the 33 channels, with a button to copy them.
+<strong>14:53</strong> · "What are partners? Do I need a bump bot? How do I get my bot seen and chosen?" 💡 Partnerships will wait for the first real users. For donations, <strong>Ko-fi</strong> can give a 💎 Contributor role on its own. <strong>DISBOARD</strong> is enough for bumping, and the priority is a page on <strong>top.gg</strong>.
+<strong>16:52</strong> · ⚠️ <em>Human problem</em>: I find an email from Teoheberg dated 28 October that <strong>I had not seen</strong>. It explained the server's deletion: "breach of point 5.3 of the terms of use". I paste the text of the article. 💡 Article 5.3 explicitly forbids <strong>Cloudflare tunnels</strong> used to get around port restrictions, which is exactly the <code>cloudflared</code> my bot was running. A second offence would close the account for good.
+🧠 Read the terms of use <strong>before</strong> installing, and keep an eye on your emails: the answer to "why did my server disappear" had been in my inbox for three days.
+<strong>17:12</strong> · I ask for a <strong>full pentest</strong> of the bot, the panel and the website: "I want a bot without a single flaw".
+<strong>23:07</strong> · ⚠️ <em>Human problem</em>: "jpp" (I'm fed up). Discord's Server Guide refuses my channels and I don't understand why. 💡 Discord also looks at the permissions of the <code>@everyone</code> role itself, not only those of the categories. One minute to fix, once the cause is known.
+<strong>23:14</strong> · ✅ <strong>Pentest finished: no critical or high-severity flaws.</strong> Four fixes installed (chapter 8).</p>
+<h2 id="ch-02-carnet-de-bord-sunday-1-november-getting-known">Sunday 1 November: getting known</h2>
+<p><strong>17:45</strong> · 🛠️ Clean addresses on the website: <code>cyberbot.fr/demarrer</code> instead of <code>cyberbot.fr/demarrer.html</code> (PR #18).
+<strong>17:52</strong> · I try to create the Hetzner server. ⚠️ Prices have gone up a lot, the cheapest model is unavailable, and a misreading made me think a €21.59 server cost €7.79. 💡 Corrected straight away, and compared with <strong>IONOS</strong> by checking the price <strong>without commitment</strong> (the low prices shown are for 24 months).
+🧠 Always read the final price including tax, the commitment period and the set-up fees.
+<strong>18:01</strong> · 🛠️ A "Making Cyber known" guide with ready-to-copy texts for top.gg, DISBOARD and Ko-fi. The website's invite link doesn't ask for the Administrator permission, which top.gg requires. One last condition: the bot must be <strong>online 24/7</strong> before being submitted.
+<strong>18:18</strong> · 🎨 Visuals 19 to 24 done: banners, level card, thumbnails and emojis.
+<strong>18:22</strong> · 🛠️ <strong>Live status on the website</strong>: the bot publishes whether it is online, its number of servers and members, and the website displays them (PR #19).</p>
+<h2 id="ch-02-carnet-de-bord-monday-2-november-the-portfolio">Monday 2 November: the portfolio</h2>
+<p><strong>23:14</strong> · 🛠️ The name "Enzo Cerejo" at the bottom of every page of the website now links to my portfolio <strong>enzocerejo.fr</strong> (PR #20).
+<strong>23:26</strong> · I ask for this documentation to be brought up to date. 📘</p>
+<p>🧠 The lesson of those days: a growing project needs communication (support server, top.gg, portfolio) as much as code.</p>
 <hr />
 <h2 id="ch-02-carnet-de-bord-log-summary">Log summary</h2>
 <div class="tw"><table>
@@ -438,11 +473,11 @@ footer .in{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 <tbody>
 <tr>
 <td>Duration</td>
-<td>6 days, including one day of more than 15 hours</td>
+<td>9 days (25 October → 2 November), including one day of more than 15 hours</td>
 </tr>
 <tr>
 <td>Versions</td>
-<td>v1.0 → v1.9</td>
+<td>v1.0 → v1.9.2</td>
 </tr>
 <tr>
 <td>Commands</td>
@@ -454,15 +489,15 @@ footer .in{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 </tr>
 <tr>
 <td>Security audits</td>
-<td>5 (more than 45 points fixed)</td>
+<td>6, including a pentest (more than 50 points fixed)</td>
 </tr>
 <tr>
 <td>Pull requests on the website</td>
-<td>More than 10</td>
+<td>21 (including this one)</td>
 </tr>
 <tr>
 <td>Major incidents</td>
-<td>1 (server deleted by the host)</td>
+<td>1 (server deleted by the host, cause found on 31 October: tunnels forbidden by its terms)</td>
 </tr>
 <tr>
 <td>Data lost</td>
@@ -1236,6 +1271,13 @@ outils/site/              website sources (*.main.html) + build.py
 <li><strong>Language</strong>: French, English, or both with the list of English channels.</li>
 <li><strong>Discohook-style advanced rules</strong>: several cards, each with its colour, and title, text, small text, separator or image blocks, with a live preview.</li>
 </ul>
+<p>Additions from 30 October (v1.9.1 and later):</p>
+<ul>
+<li><strong>Panel in English</strong>: 🇬🇧 EN / 🇫🇷 FR button at the top right.</li>
+<li><strong>Two-mode verification</strong>: channels <strong>hidden</strong> from unverified members, or visible as <strong>read-only</strong>. The panel applies the right permissions to <code>@everyone</code> and to the verified role itself, without ever granting a dangerous right.</li>
+<li><strong>Tickets</strong>: up to 10 staff roles can see tickets.</li>
+<li><strong>Reply in each member's language</strong>: personal choice, then language role, then Discord language, then the server's or channel's language.</li>
+</ul>
 <h2 id="ch-05-panel-panel-security">Panel security</h2>
 <p>The panel has no password and no SQL database: <strong>no SQL injection is possible</strong>. The protections in place:</p>
 <ul>
@@ -1330,6 +1372,13 @@ outils/site/              website sources (*.main.html) + build.py
 <figure><img src="../images/site-modules.jpg" alt="Custom modules page" loading="lazy"><figcaption>Custom modules page</figcaption></figure>
 <figure><img src="../images/site-404.jpg" alt="404 page" loading="lazy"><figcaption>404 page</figcaption></figure>
 <p>The same day, the old demo panel gave way to a redirect to the real panel (chapter 5).</p>
+<h3 id="ch-06-site-et-domaine-since-then-on-the-website-30-october-2-n">Since then, on the website (30 October → 2 November)</h3>
+<ul>
+<li><strong>Animated guided tour</strong> and a <strong>Modules</strong> section on the home page; the Academy is presented there as an optional module.</li>
+<li><strong>Clean addresses</strong> without ".html" (<code>cyberbot.fr/demarrer</code>).</li>
+<li><strong>Live status</strong>: the bot publishes on <code>panel.cyberbot.fr/statut</code> whether it is online and its number of servers and members, and the website shows it with a server counter.</li>
+<li>New permanent link to the support server, and the author's name linked to the portfolio <strong>enzocerejo.fr</strong>.</li>
+</ul>
 <h2 id="ch-06-site-et-domaine-buying-the-domain-name-28-october">Buying the domain name (28 October)</h2>
 <p>As <code>cyber.com</code> or <code>cyberbot.com</code> were almost certainly taken or very expensive, the choice went to <strong>cyberbot.fr</strong>:</p>
 <ul>
@@ -1486,7 +1535,7 @@ outils/site/              website sources (*.main.html) + build.py
 </tr>
 </tbody>
 </table></div>
-<p>Conclusion: a <strong>refurbished mini PC</strong> (HP EliteDesk 800 G4/G5 Mini, Lenovo ThinkCentre M720q/M920q, Dell OptiPlex 7070 Micro) with Proxmox or Debian, Docker and the Cloudflare tunnel already set up. It will also serve as a lab for the BTS CIEL and the CCNA. Final choice (29 October): a second-hand <strong>HP EliteDesk 800 G5 Mini</strong> (6-core i5-9500, <strong>16 GB</strong> RAM, 500 GB SSD, Wi-Fi) for <strong>€220</strong>, preferred to a €200 model that only had 12 GB. My father buys it on Saturday 31 October with leboncoin's secure payment. Planned next: <strong>Proxmox</strong>, a Debian VM with Docker for the bot, the panel and the tunnel, then lab VMs (pfSense, Windows Server, Linux) turned on only for revision.</p>
+<p>Conclusion: a <strong>refurbished mini PC</strong> (HP EliteDesk 800 G4/G5 Mini, Lenovo ThinkCentre M720q/M920q, Dell OptiPlex 7070 Micro) with Proxmox or Debian, Docker and the Cloudflare tunnel already set up. It will also serve as a lab for the BTS CIEL and the CCNA. On 29 October, a second-hand <strong>HP EliteDesk 800 G5 Mini</strong> (6-core i5-9500, 16 GB RAM, 500 GB SSD, Wi-Fi) for €220 is chosen first. That same evening, the seller asks for a PayPal payment outside leboncoin: the listing is dropped, and the choice moves to another G5 Mini (i5-9600, 12 GB, 512 GB, €200), to be bought only with leboncoin's secure payment. A DDR5 memory stick I owned couldn't be used: these PCs only take DDR4. Planned next: <strong>Proxmox</strong>, a Debian VM with Docker for the bot, the panel and the tunnel, then lab VMs (pfSense, Windows Server, Linux) turned on only for revision.</p>
 <h2 id="ch-07-hebergement-et-tunnel-and-in-the-meantime">And in the meantime?</h2>
 <p>On 29 October, I also looked at paid hosting so that the panel stays available even when my PC is off:</p>
 <div class="tw"><table>
@@ -1521,9 +1570,20 @@ outils/site/              website sources (*.main.html) + build.py
 </tbody>
 </table></div>
 <p>Decision: stay on the PC for now (the panel is available when it's on) and decide in a few days. The tunnel won't change: it will just need to be started from the new machine.</p>
+<p><strong>Update of 1 November</strong>: when it came to creating the server, Hetzner's real prices (including tax and the IPv4 address) were much higher. The CX23 model was unavailable, the CPX02 (1 GB) cost €7.79 a month, and the CPX11 €21.59. The <strong>IONOS</strong> option (VPS M, 4 GB) was added, provided the price without commitment is checked: the €2 to €3 shown is for a 24-month commitment. The choice is still open.</p>
+<h2 id="ch-07-hebergement-et-tunnel-why-teoheberg-deleted-the-server">Why Teoheberg deleted the server</h2>
+<p>On 31 October, I found the host's email that I had not seen. The server had been deleted for breaching <strong>article 5.3</strong> of its terms, which applies to the Eco and Standard offers. Among other things, it forbids:</p>
+<ul>
+<li><strong>tunnels</strong> (including "Cloudflare Argo Tunnel" and Ngrok) used to get around port restrictions;</li>
+<li>proxy servers (VLESS, VMESS, Trojan…);</li>
+<li>programs renamed to hide what they do;</li>
+<li>automatically sending configurations to third-party services;</li>
+<li>external monitoring agents.</li>
+</ul>
+<p>The <code>cloudflared</code> started by Cyber was therefore exactly what was forbidden. A second offence would close the account. Going back to Teoheberg would mean a server <strong>without a tunnel</strong> (no <code>TUNNEL_TOKEN</code>), and so giving up <code>panel.cyberbot.fr</code>, or taking the Standard range with a port, over HTTP. That's why a server of my own (VPS or homelab) remains the right solution.</p>
 <a class="up" href="#top">↑ Back to top</a></section>
 <section class="chap" id="ch-08-securite-et-audits"><p class="eyebrow">Chapter 8</p><h2>Security and audits</h2>
-<p>Security was treated as a common thread: five audits in four days, each time with a report ranked by priority, a simple explanation of each flaw, then tested fixes.</p>
+<p>Security was treated as a common thread: six audits in one week, including a pentest, each time with a report ranked by priority, a simple explanation of each flaw, then tested fixes.</p>
 <figure><img src="../images/bilan-audits.jpg" alt="Audit summary" loading="lazy"><figcaption>Audit summary</figcaption></figure>
 <h2 id="ch-08-securite-et-audits-the-basic-rules">The basic rules</h2>
 <ul>
@@ -1687,12 +1747,52 @@ outils/site/              website sources (*.main.html) + build.py
 <li>a <strong>global leaderboard</strong> for the mini-game was advised against: anyone could send a fake score in two seconds.</li>
 </ul>
 <p>Final test with another Discord account: passed.</p>
+<p>That same evening, an extra check added three hardening steps: a login cookie locked to <code>panel.cyberbot.fr</code> (<code>__Host-</code> prefix, impossible to replace from another subdomain), the automatic redirect from <code>http://</code> to <code>https://</code> behind the tunnel, and <strong>Always Use HTTPS</strong> and <strong>Bot Fight Mode</strong> in Cloudflare.</p>
 <h2 id="ch-08-securite-et-audits-automod-against-disguised-letters-29-oct">Automod against disguised letters (29 October)</h2>
 <p>My question: "Could we add a bit of AI to the automod, which can be bypassed with two or three text changes?" Two layers were proposed:</p>
 <ol>
 <li><strong>Free</strong> (installed): before searching for banned words, the text is "flattened". Invisible characters are removed, stylised letters (𝐜𝐨𝐧, ⓒⓞⓝ), Russian or Greek letters that look like ours and flag letters are turned back into normal letters, and words split by a symbol ("con-nard", "con🤡nard") are joined back together. Tested without false positives on normal sentences like "la mer de glace".</li>
 <li><strong>AI</strong> (Claude Haiku, about 5 cents per 1,000 messages, with an API key separate from my subscription): it would also understand rephrased insults. I preferred <strong>not to spend anything for now</strong>. The code is kept aside.</li>
 </ol>
+<h2 id="ch-08-securite-et-audits-audit-no-6-full-pentest-31-october">Audit no. 6 · Full pentest (31 October)</h2>
+<p>Request: "I want a bot without a single flaw". A penetration test of my own services: review of the bot's code (permissions, inputs, data), black-box tests of the panel (CSRF, sessions, headers, limits), review of the public website and of the GitHub history. For availability, only a code and configuration review: no load testing, since Cloudflare and GitHub Pages don't belong to me.</p>
+<p><strong>Result: no critical or high-severity flaws.</strong> 2 medium and 3 low issues:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Severity</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>An admin could allow <code>/ban</code> for a role that has no right to ban, and Cyber would still ban</td>
+<td>Medium</td>
+<td>Cyber rechecks the member's real permission before every command</td>
+</tr>
+<tr>
+<td>A crash stopped the bot until it was restarted by hand</td>
+<td>Medium</td>
+<td>Automatic restart (up to 20 times)</td>
+</tr>
+<tr>
+<td><code>/snipe</code> kept deleted messages with no time limit</td>
+<td>Low</td>
+<td>Forgotten after one hour</td>
+</tr>
+<tr>
+<td>Broken requests to the panel → "internal error"</td>
+<td>Low</td>
+<td>Clean responses (400, 404, 413)</td>
+</tr>
+<tr>
+<td>An old email address remains in the website's Git history</td>
+<td>Low</td>
+<td>Left as is (rewriting history would be riskier)</td>
+</tr>
+</tbody>
+</table></div>
 <h2 id="ch-08-securite-et-audits-account-and-infrastructure-protection">Account and infrastructure protection</h2>
 <ul>
 <li>Two-factor authentication on the Discord, GitHub and Cloudflare accounts.</li>
@@ -1838,7 +1938,7 @@ outils/site/              website sources (*.main.html) + build.py
 </ul>
 <p>Free generators output 1024 or 1536 px images: each image is then cropped and resized to the exact sizes required by Discord or the website.</p>
 <figure><img src="../images/banniere.jpg" alt="Profile banner" loading="lazy"><figcaption>Profile banner</figcaption></figure>
-<p>A few embed banners already produced (1200 × 400):</p>
+<p>As of 1 November, prompts 2 to 24 are done: avatar, banners, sharing image, banners 8 to 21, level card, thumbnails and emojis. A few embed banners (1200 × 400):</p>
 <p><figure><img src="../images/bandeau-08-bienvenue.jpg" alt="Welcome banner" loading="lazy"><figcaption>Welcome banner</figcaption></figure>
 <figure><img src="../images/bandeau-10-moderation.jpg" alt="Moderation banner" loading="lazy"><figcaption>Moderation banner</figcaption></figure>
 <figure><img src="../images/bandeau-12-tickets.jpg" alt="Tickets banner" loading="lazy"><figcaption>Tickets banner</figcaption></figure>
@@ -1846,7 +1946,7 @@ outils/site/              website sources (*.main.html) + build.py
 <h2 id="ch-10-identite-et-communaute-the-bot-s-profile-on-discord">The bot's profile on Discord</h2>
 <ul>
 <li><strong>Avatar and banner</strong> uploaded in the developer portal (the banner was redone as an opaque version, with centred text, so it looks right in the small view).</li>
-<li><strong>Permanent status</strong>: "🌐 cyberbot.fr · /aide".</li>
+<li><strong>Permanent status</strong>: "🌐 cyberbot.fr · /help" (since the commands got English names).</li>
 <li><strong>Automatic bio</strong> with the number of servers, members and commands, updated by the bot itself.</li>
 <li>Links to the terms of service and the privacy policy.</li>
 <li>Application moved into a <strong>Discord team</strong>.</li>
@@ -1861,6 +1961,52 @@ outils/site/              website sources (*.main.html) + build.py
 <li>no "Sanction" category: <code>/mute</code> already uses Discord's native timeout.</li>
 </ul>
 <p>On 29 October, the server becomes <strong>bilingual</strong>. A newcomer arrives with the "Unverified" role and only sees a <code>langue-language</code> channel. They pick 🇫🇷 or 🇬🇧, read the rules in their language, accept them and receive "Membre" or "Member". They then see their language's channels and the shared channels. The English rules are published with a dedicated script, like the French ones.</p>
+<p><strong>The final model (30 and 31 October)</strong>. After several attempts (two separate servers by language, then channels hidden by language), the chosen formula is <strong>a single bilingual server</strong>:</p>
+<ul>
+<li>the 🇫🇷 Français and 🇬🇧 English roles are only <strong>informative</strong>: anyone can take both, and they hide no channels;</li>
+<li>channels have names in both languages (<code>📢・annonces-news</code>, <code>🔍・entraide-help</code>…), only chat is split (<code>🇫🇷・discussions</code> and <code>🇬🇧・general</code>);</li>
+<li>each channel has a topic in French and in English;</li>
+<li><strong>read-only</strong> mode: <code>@everyone</code> sees everything but cannot write. The rules button gives the ✅ Verified role, which can write where chat is open. Both sets of rules are in the same channel, and Cyber answers in the language of the one that was clicked.</li>
+</ul>
+<h2 id="ch-10-identite-et-communaute-getting-known">Getting known</h2>
+<p>On 31 October and 1 November, I prepared Cyber's visibility:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Lever</th>
+<th>Role</th>
+<th>When</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>top.gg</strong></td>
+<td>Bot directory: page with screenshots, votes, reviews</td>
+<td>As soon as the bot is online 24/7 (review takes 1 to 2 weeks)</td>
+</tr>
+<tr>
+<td><strong>DISBOARD</strong></td>
+<td>Pushes the support server up a directory ("bump")</td>
+<td>Right away</td>
+</tr>
+<tr>
+<td><strong>Ko-fi</strong></td>
+<td>Donations, with the 💎 Contributor role given automatically</td>
+<td>When there are users</td>
+</tr>
+<tr>
+<td><strong>Partnerships</strong></td>
+<td>Advertising swaps between servers</td>
+<td>Later, with the servers that use Cyber</td>
+</tr>
+<tr>
+<td><strong>Live status</strong></td>
+<td>The website shows whether the bot is online and its number of servers</td>
+<td>Done on 1 November</td>
+</tr>
+</tbody>
+</table></div>
+<p>The website's invite link doesn't ask for the Administrator permission, which top.gg requires. Ready-to-copy texts (French and English) were written for each platform. The website also links to my portfolio, <strong>enzocerejo.fr</strong>.</p>
 <a class="up" href="#top">↑ Back to top</a></section>
 <section class="chap" id="ch-11-problemes-et-lecons"><p class="eyebrow">Chapter 11</p><h2>Problems encountered and lessons learned</h2>
 <p>The project log (chapter 2) tells the problems in the order they happened. This chapter groups them by type to draw lessons from them.</p>
@@ -1922,6 +2068,24 @@ outils/site/              website sources (*.main.html) + build.py
 <td>PRs merged online while the PC was off</td>
 <td><code>SYNCHRONISER-SITE.bat</code> (sets aside then aligns with GitHub)</td>
 <td>Two ways to publish = remember to resync</td>
+</tr>
+<tr>
+<td>Host server deleted</td>
+<td>Article 5.3 of its terms forbids Cloudflare tunnels (found on 31 October)</td>
+<td>Stay on my PC, then a server of my own</td>
+<td>Read the terms of use before installing</td>
+</tr>
+<tr>
+<td>Discord Server Guide refused my channels</td>
+<td><code>@everyone</code> still had the right to write at the role level itself</td>
+<td>Remove "Send messages" from the <code>@everyone</code> role</td>
+<td>Discord permissions add up: role, category, channel</td>
+</tr>
+<tr>
+<td>"I use Cyber" role impossible</td>
+<td>Discord doesn't list an app's installations on an account</td>
+<td>Idea dropped, code removed</td>
+<td>Check what the API allows before coding</td>
 </tr>
 <tr>
 <td>Every command answered twice</td>
@@ -2049,6 +2213,31 @@ outils/site/              website sources (*.main.html) + build.py
 <td>You don't copy a protected creation: an original game does the job just as well</td>
 </tr>
 <tr>
+<td>Important email not read</td>
+<td>The email explaining the server's deletion had been in my inbox for three days</td>
+<td>Keep an eye on emails and notifications, especially after an incident</td>
+</tr>
+<tr>
+<td>Payment outside the platform</td>
+<td>A seller wanted PayPal "friends and family"</td>
+<td>Always pay with the site's secure payment, or walk away</td>
+</tr>
+<tr>
+<td>Incompatible part</td>
+<td>I planned to put DDR5 in a PC that only takes DDR4</td>
+<td>Check every part's compatibility before buying</td>
+</tr>
+<tr>
+<td>Misread prices</td>
+<td>Prices without tax, 24-month commitment, set-up fees, wrong line</td>
+<td>Compare the final price including tax, without commitment</td>
+</tr>
+<tr>
+<td>Frustration ("jpp")</td>
+<td>Discord settings that refused to work</td>
+<td>Take a break and describe the blockage precisely: the cause was simple</td>
+</tr>
+<tr>
 <td>New vocabulary</td>
 <td>Bot token or GitHub token? PR, merge, branch, ruleset, CNAME, TOTP…</td>
 <td>Ask "what's that?" without embarrassment: every answer helped me progress</td>
@@ -2123,16 +2312,17 @@ outils/site/              website sources (*.main.html) + build.py
 <section class="chap" id="ch-12-suite"><p class="eyebrow">Chapter 12</p><h2>What&#x27;s next for the project</h2>
 <h2 id="ch-12-suite-short-term">Short term</h2>
 <ul>
-<li>Finish the visuals (resume at prompt 19) and install them in the bot and on the website.</li>
 <li>Build the Discord support server from the template.</li>
 <li>Do the two-factor authentication and the identity check to prepare for Discord verification.</li>
 <li>Make Cyber known to reach the <strong>75 servers</strong> needed to apply for verification.</li>
-<li>Translate the Academy (lessons, quizzes, glossary) into English.</li>
-<li>Decide on continuous hosting (Hetzner, about €4 a month) while waiting for the homelab.</li>
+<li>Translate the Academy (optional module) into English, if the need arises.</li>
+<li>Choose continuous hosting while waiting for the homelab (Hetzner CPX02 or IONOS VPS M, prices without commitment to check).</li>
+<li>Publish Cyber on <strong>top.gg</strong> and the server on <strong>DISBOARD</strong> as soon as the bot is online 24/7; open a <strong>Ko-fi</strong> page with the 💎 Contributor role.</li>
+<li>Finish the visuals (prompts 25 onwards).</li>
 </ul>
-<h2 id="ch-12-suite-the-homelab-bought-on-31-october">The homelab (bought on 31 October)</h2>
+<h2 id="ch-12-suite-the-homelab">The homelab</h2>
 <ul>
-<li>Purchase of a second-hand <strong>HP EliteDesk 800 G5 Mini</strong> (i5-9500, 16 GB RAM, 500 GB SSD) for €220, earlier than planned.</li>
+<li>Purchase of a second-hand <strong>HP EliteDesk 800 G5 Mini</strong> (9th-generation i5, 12 to 16 GB RAM) through leboncoin's secure payment, earlier than planned.</li>
 <li>Install <strong>Proxmox</strong> or Debian, then <strong>Docker</strong>.</li>
 <li>Bot in a container, with no exposed port, with the <strong>Cloudflare tunnel</strong> already set up (route to <code>127.0.0.1:&lt;port&gt;</code>, <code>cloudflared</code> fingerprint for the right architecture).</li>
 <li>Scheduled reminders from 26 December to 3 January so nothing is forgotten.</li>
@@ -2152,7 +2342,6 @@ outils/site/              website sources (*.main.html) + build.py
 <ul>
 <li>AI layer for the automod (Claude Haiku), already written and set aside, if the need is confirmed.</li>
 <li><code>COMMANDES=global</code> option to register the commands once for every server.</li>
-<li>Status widget on the website.</li>
 <li><strong>Sharding</strong>, mandatory from 2,500 servers.</li>
 <li>Privileged intents justified to Discord.</li>
 </ul>
@@ -2169,6 +2358,10 @@ outils/site/              website sources (*.main.html) + build.py
 <tr>
 <td><strong>API</strong></td>
 <td>A service's entry point for programs (here, Discord's or Anthropic's)</td>
+</tr>
+<tr>
+<td><strong>Bump</strong></td>
+<td>Pushing your server back to the top of a directory such as DISBOARD, at regular intervals</td>
 </tr>
 <tr>
 <td><strong>Branch / Pull request / Merge</strong></td>
@@ -2233,6 +2426,10 @@ outils/site/              website sources (*.main.html) + build.py
 <tr>
 <td><strong>OAuth2</strong></td>
 <td>Logging in "with Discord" without giving your password to the site</td>
+</tr>
+<tr>
+<td><strong>Pentest</strong></td>
+<td>Penetration test: you attack your own services, with permission, to find the flaws before others do</td>
 </tr>
 <tr>
 <td><strong>Proxmox</strong></td>
