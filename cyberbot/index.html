@@ -2,6 +2,8 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Cyber · Documentation du projet · Enzo Cerejo</title>
 <meta name="description" content="Documentation complète du bot Discord Cyber, projet personnel d'Enzo Cerejo : carnet de bord, choix techniques, réseau, sécurité, RGPD et leçons apprises.">
@@ -24,12 +26,12 @@ a{color:var(--red2)}:focus-visible{outline:2px solid var(--red);outline-offset:3
 .back b{display:grid;place-items:center;width:30px;height:30px;border:1px solid var(--red);border-radius:6px;color:var(--red);font:500 12px var(--f-mono);flex:none}
 .links{display:flex;gap:10px;align-items:center}
 .btn{display:inline-flex;align-items:center;gap:8px;font:600 13.5px var(--f-sans);padding:8px 14px;border-radius:8px;text-decoration:none;white-space:nowrap;transition:transform .2s,box-shadow .3s}
-.btn.solid{background:var(--red);color:#fff;box-shadow:0 0 18px rgba(255,61,90,.35)}
+.btn.solid{background:#d81b3c;color:#fff;box-shadow:0 0 18px rgba(255,61,90,.35)}
 .btn.line{border:1px solid rgba(255,122,140,.45);color:var(--fg)}
 .btn:hover{transform:scale(1.05);box-shadow:0 0 0 1px rgba(255,122,140,.5),0 0 26px 4px rgba(255,61,90,.35)}
 .lang{display:flex;border:1px solid rgba(255,122,140,.45);border-radius:8px;overflow:hidden}
 .lang a{font:600 12.5px var(--f-mono);color:var(--muted);text-decoration:none;padding:7px 10px}
-.lang a[aria-current]{color:#fff;background:var(--red)}
+.lang a[aria-current]{color:#fff;background:#d81b3c}
 .btn img{width:20px;height:20px;display:block}
 .hero{padding:64px 0 32px}
 .hero .top{display:flex;gap:22px;align-items:center}
@@ -47,7 +49,7 @@ h1{font-size:clamp(30px,5vw,52px);margin:8px 0 0;font-weight:800}
 .toc a span{font:500 12px var(--f-mono);color:var(--red2);min-width:22px;padding-top:2px}
 .toc a:hover,.toc a.on{background:rgba(255,61,90,.14);color:#fff}
 .box{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 26px;margin-bottom:28px}
-.box h3{margin:0 0 10px;font-size:18px}
+.box h2,.box h3{margin:0 0 10px;font-size:18px}
 .chap{background:rgba(28,8,16,.6);border:1px solid var(--line);border-radius:16px;padding:34px clamp(18px,4vw,40px);margin-bottom:28px}
 .chap > h2{font-size:clamp(24px,3.4vw,34px);margin:6px 0 18px}
 .chap h3{font-size:21px;margin:34px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
@@ -107,8 +109,8 @@ footer .in{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 <li><a href="#ch-annexe-glossaire"><span>Annexe</span>Glossaire</a></li>
   </ol></aside>
   <main>
-    <div class="box"><h3 id="top-chiffres-cl-s">Chiffres clés</h3>
-<div class="tw"><table>
+    <div class="box"><h2 id="top-chiffres-cl-s">Chiffres clés</h2>
+<div class="tw" tabindex="0" role="region" aria-label="Tableau défilant 1"><table>
 
 <tbody>
 <tr>
@@ -137,14 +139,14 @@ footer .in{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 </tr>
 </tbody>
 </table></div></div>
-    <div class="box"><h3 id="top-propos-des-images">À propos des images</h3>
+    <div class="box"><h2 id="top-propos-des-images">À propos des images</h2>
 <p>Les captures du site et du panel viennent du <strong>mode démonstration</strong>, qui était public jusqu'au 29 octobre (aucune donnée réelle). Les écrans d'outils (Cloudflare, console d'hébergement, profil Discord…) sont des <strong>illustrations recréées</strong> d'après les vraies captures du projet, pour garder le même rendu sans exposer d'identifiants, d'adresses IP ni d'informations personnelles.</p></div>
 <section class="chap" id="ch-01-contexte"><p class="eyebrow">Chapitre 1</p><h2>Contexte et objectifs</h2>
 <h2 id="ch-01-contexte-le-point-de-d-part">Le point de départ</h2>
 <p><strong>Cyber</strong> est un bot Discord créé par <strong>Enzo Cerejo</strong>, étudiant en <strong>BTS CIEL</strong> (Cybersécurité, Informatique et réseaux, Électronique), option Informatique et Réseaux. Le projet est né d'un constat simple : sur un serveur Discord, on empile souvent cinq ou six bots différents (un pour les tickets, un pour la modération, un pour les niveaux, un pour les giveaways…). Chacun a ses permissions, son tableau de bord, ses pannes.</p>
 <p>L'idée : <strong>un seul bot, gratuit, qui remplace tous les autres</strong>. En plus, un petit module optionnel, l'<strong>Académie</strong>, permet de réviser les réseaux au niveau <strong>CCNA</strong>. Il est né de la passion d'Enzo pour l'infrastructure réseau, en lien avec sa formation.</p>
 <h2 id="ch-01-contexte-les-objectifs-fix-s">Les objectifs fixés</h2>
-<div class="tw"><table>
+<div class="tw" tabindex="0" role="region" aria-label="Tableau défilant 2"><table>
 <thead>
 <tr>
 <th>Objectif</th>
@@ -463,7 +465,7 @@ footer .in{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 <p>🧠 La leçon de ces jours-là : un projet qui grandit a autant besoin de communication (serveur de support, top.gg, portfolio) que de code.</p>
 <hr />
 <h2 id="ch-02-carnet-de-bord-bilan-du-carnet">Bilan du carnet</h2>
-<div class="tw"><table>
+<div class="tw" tabindex="0" role="region" aria-label="Tableau défilant 3"><table>
 <thead>
 <tr>
 <th>Indicateur</th>
@@ -509,7 +511,7 @@ footer .in{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 <section class="chap" id="ch-03-choix-techniques"><p class="eyebrow">Chapitre 3</p><h2>Choix techniques</h2>
 <figure><img src="images/architecture.jpg" alt="Architecture générale" loading="lazy"><figcaption>Architecture générale</figcaption></figure>
 <h2 id="ch-03-choix-techniques-les-briques-du-projet">Les briques du projet</h2>
-<div class="tw"><table>
+<div class="tw" tabindex="0" role="region" aria-label="Tableau défilant 4"><table>
 <thead>
 <tr>
 <th>Brique</th>
@@ -567,7 +569,7 @@ footer .in{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 </table></div>
 <h2 id="ch-03-choix-techniques-organisation-des-dossiers">Organisation des dossiers</h2>
 <p>Sur le PC d'Enzo, tout est regroupé dans un dossier <code>Cyber</code> :</p>
-<div class="tw"><table>
+<div class="tw" tabindex="0" role="region" aria-label="Tableau défilant 5"><table>
 <thead>
 <tr>
 <th>Dossier</th>
@@ -589,7 +591,7 @@ footer .in{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 </tbody>
 </table></div>
 <p>Structure du bot :</p>
-<pre><code>src/index.js              démarrage (instance unique, événements, arrêt propre)
+<pre tabindex="0" role="region" aria-label="Code"><code>src/index.js              démarrage (instance unique, événements, arrêt propre)
 src/deploy-commands.js    enregistre les commandes sur tous les serveurs
 src/loader.js             charge src/commands/&lt;catégorie&gt;/*.js
 src/commands/             une commande = un fichier
@@ -603,7 +605,7 @@ outils/site/              sources du site (*.main.html) + build.py
 </code></pre>
 <h2 id="ch-03-choix-techniques-les-scripts-un-double-clic">Les scripts « un double-clic »</h2>
 <p>Enzo ne code pas : chaque opération courante tient dans un fichier <code>.bat</code> Windows.</p>
-<div class="tw"><table>
+<div class="tw" tabindex="0" role="region" aria-label="Tableau défilant 6"><table>
 <thead>
 <tr>
 <th>Script</th>
@@ -641,7 +643,7 @@ outils/site/              sources du site (*.main.html) + build.py
 <a class="up" href="#top">↑ Haut de page</a></section>
 <section class="chap" id="ch-04-bot-et-commandes"><p class="eyebrow">Chapitre 4</p><h2>Le bot et ses commandes</h2>
 <h2 id="ch-04-bot-et-commandes-volution-version-par-version">Évolution version par version</h2>
-<div class="tw"><table>
+<div class="tw" tabindex="0" role="region" aria-label="Tableau défilant 7"><table>
 <thead>
 <tr>
 <th>Version</th>
@@ -754,7 +756,7 @@ outils/site/              sources du site (*.main.html) + build.py
 <h2 id="ch-04-bot-et-commandes-liste-compl-te-des-61-commandes">Liste complète des 61 commandes</h2>
 <p>Noms en anglais depuis la v1.9 (le nom français d'origine reste dans le code).</p>
 <h3 id="ch-04-bot-et-commandes-utilitaires-17">🧰 Utilitaires (17)</h3>
-<div class="tw"><table>
+<div class="tw" tabindex="0" role="region" aria-label="Tableau défilant 8"><table>
 <thead>
 <tr>
 <th>Commande</th>
@@ -851,7 +853,7 @@ outils/site/              sources du site (*.main.html) + build.py
 </tbody>
 </table></div>
 <h3 id="ch-04-bot-et-commandes-acad-mie-8">🎓 Académie (8)</h3>
-<div class="tw"><table>
+<div class="tw" tabindex="0" role="region" aria-label="Tableau défilant 9"><table>
 <thead>
 <tr>
 <th>Commande</th>
@@ -903,7 +905,7 @@ outils/site/              sources du site (*.main.html) + build.py
 </tbody>
 </table></div>
 <h3 id="ch-04-bot-et-commandes-outils-r-seau-4">🌐 Outils réseau (4)</h3>
-<div class="tw"><table>
+<div class="tw" tabindex="0" role="region" aria-label="Tableau défilant 10"><table>
 <thead>
 <tr>
 <th>Commande</th>
@@ -935,7 +937,7 @@ outils/site/              sources du site (*.main.html) + build.py
 </tbody>
 </table></div>
 <h3 id="ch-04-bot-et-commandes-niveaux-4">📈 Niveaux (4)</h3>
-<div class="tw"><table>
+<div class="tw" tabindex="0" role="region" aria-label="Tableau défilant 11"><table>
 <thead>
 <tr>
 <th>Commande</th>
@@ -967,7 +969,7 @@ outils/site/              sources du site (*.main.html) + build.py
 </tbody>
 </table></div>
 <h3 id="ch-04-bot-et-commandes-syst-mes-7">⚙️ Systèmes (7)</h3>
-<div class="tw"><table>
+<div class="tw" tabindex="0" role="region" aria-label="Tableau défilant 12"><table>
 <thead>
 <tr>
 <th>Commande</th>
@@ -1014,7 +1016,7 @@ outils/site/              sources du site (*.main.html) + build.py
 </tbody>
 </table></div>
 <h3 id="ch-04-bot-et-commandes-mod-ration-9">🛡️ Modération (9)</h3>
-<div class="tw"><table>
+<div class="tw" tabindex="0" role="region" aria-label="Tableau défilant 13"><table>
 <thead>
 <tr>
 <th>Commande</th>
@@ -1071,7 +1073,7 @@ outils/site/              sources du site (*.main.html) + build.py
 </tbody>
 </table></div>
 <h3 id="ch-04-bot-et-commandes-r-les-2">🎭 Rôles (2)</h3>
-<div class="tw"><table>
+<div class="tw" tabindex="0" role="region" aria-label="Tableau défilant 14"><table>
 <thead>
 <tr>
 <th>Commande</th>
@@ -1093,7 +1095,7 @@ outils/site/              sources du site (*.main.html) + build.py
 </tbody>
 </table></div>
 <h3 id="ch-04-bot-et-commandes-fun-7">🎲 Fun (7)</h3>
-<div class="tw"><table>
+<div class="tw" tabindex="0" role="region" aria-label="Tableau défilant 15"><table>
 <thead>
 <tr>
 <th>Commande</th>
@@ -1140,7 +1142,7 @@ outils/site/              sources du site (*.main.html) + build.py
 </tbody>
 </table></div>
 <h3 id="ch-04-bot-et-commandes-admin-3">🔧 Admin (3)</h3>
-<div class="tw"><table>
+<div class="tw" tabindex="0" role="region" aria-label="Tableau défilant 16"><table>
 <thead>
 <tr>
 <th>Commande</th>
@@ -1191,7 +1193,7 @@ outils/site/              sources du site (*.main.html) + build.py
 <figure><img src="images/panel-mobile.jpg" alt="Version mobile" loading="lazy"><figcaption>Version mobile</figcaption></figure>
 <h2 id="ch-05-panel-tape-3-panel-v1-7-les-7-lots-demand-s-pa">Étape 3 · Panel v1.7 : les 7 lots demandés par Enzo</h2>
 <p>Après avoir parcouru chaque réglage, Enzo a listé ce qui manquait. Tout a été livré en une soirée, en 7 lots :</p>
-<div class="tw"><table>
+<div class="tw" tabindex="0" role="region" aria-label="Tableau défilant 17"><table>
 <thead>
 <tr>
 <th>Lot</th>
@@ -1296,7 +1298,7 @@ outils/site/              sources du site (*.main.html) + build.py
 <h2 id="ch-06-site-et-domaine-le-site-vitrine">Le site vitrine</h2>
 <p>Le site présente Cyber, liste ses commandes, explique comment démarrer et publie l'historique des versions. Il est hébergé gratuitement par <strong>GitHub Pages</strong>, en HTTPS.</p>
 <figure><img src="images/site-accueil.jpg" alt="Page d'accueil" loading="lazy"><figcaption>Page d'accueil</figcaption></figure>
-<div class="tw"><table>
+<div class="tw" tabindex="0" role="region" aria-label="Tableau défilant 18"><table>
 <thead>
 <tr>
 <th>Page</th>
@@ -1411,7 +1413,7 @@ outils/site/              sources du site (*.main.html) + build.py
 <h2 id="ch-06-site-et-domaine-prot-ger-la-branche-principale">Protéger la branche principale</h2>
 <p>Un <strong>ruleset GitHub</strong> protège la branche <code>main</code> du site : suppression interdite et « force push » bloqué. Les pull requests ne sont pas obligatoires pour que <code>PUBLIER.bat</code> puisse continuer à publier directement.</p>
 <h2 id="ch-06-site-et-domaine-les-pull-requests-du-site">Les pull requests du site</h2>
-<div class="tw"><table>
+<div class="tw" tabindex="0" role="region" aria-label="Tableau défilant 19"><table>
 <thead>
 <tr>
 <th>PR</th>
@@ -1499,7 +1501,7 @@ outils/site/              sources du site (*.main.html) + build.py
 <p>Après la suppression du serveur de l'hébergeur (voir chapitre 11), le même tunnel a été relancé <strong>depuis le PC d'Enzo</strong>, simplement en modifiant la route vers <code>127.0.0.1:3000</code>. Le panel est accessible sur <code>https://panel.cyberbot.fr</code> tant que le PC et le bot sont allumés. Pour un futur serveur, il suffira de copier le <code>.env</code> avec l'empreinte adaptée et de pointer la route sur <code>127.0.0.1:&lt;port&gt;</code>.</p>
 <h2 id="ch-07-hebergement-et-tunnel-le-futur-h-bergement-un-mini-pc-homelab">Le futur hébergement : un mini PC « homelab »</h2>
 <p>Comparaison faite pour un hébergement à la maison :</p>
-<div class="tw"><table>
+<div class="tw" tabindex="0" role="region" aria-label="Tableau défilant 20"><table>
 <thead>
 <tr>
 <th>Critère</th>
@@ -1538,7 +1540,7 @@ outils/site/              sources du site (*.main.html) + build.py
 <p>Conclusion retenue : un <strong>mini PC reconditionné</strong> (HP EliteDesk 800 G4/G5 Mini, Lenovo ThinkCentre M720q/M920q, Dell OptiPlex 7070 Micro) avec Proxmox ou Debian, Docker et le tunnel Cloudflare déjà prêt. Il servira aussi de laboratoire pour le BTS CIEL et le CCNA. Le 29 octobre, un <strong>HP EliteDesk 800 G5 Mini</strong> d'occasion (i5-9500 6 cœurs, 16 Go de RAM, SSD 500 Go, Wi-Fi) à 220 € est d'abord choisi. Le soir même, le vendeur demande un paiement PayPal hors de leboncoin : l'annonce est abandonnée, et le choix se reporte sur un autre G5 Mini (i5-9600, 12 Go, 512 Go, 200 €), à acheter uniquement avec la transaction sécurisée de leboncoin. Une barrette DDR5 que je possédais ne pouvait pas servir : ces PC n'acceptent que la DDR4. Prévu ensuite : <strong>Proxmox</strong>, une VM Debian avec Docker pour le bot, le panel et le tunnel, puis des VM de labo (pfSense, Windows Server, Linux) allumées seulement pour réviser.</p>
 <h2 id="ch-07-hebergement-et-tunnel-et-en-attendant">Et en attendant ?</h2>
 <p>Le 29 octobre, j'ai aussi étudié un hébergement payant pour que le panel reste disponible même quand mon PC est éteint :</p>
-<div class="tw"><table>
+<div class="tw" tabindex="0" role="region" aria-label="Tableau défilant 21"><table>
 <thead>
 <tr>
 <th>Option</th>
@@ -1594,7 +1596,7 @@ outils/site/              sources du site (*.main.html) + build.py
 </ul>
 <h2 id="ch-08-securite-et-audits-audit-n-1-s-curit-du-code-et-de-la-confi">Audit n°1 · Sécurité du code et de la configuration (26 octobre)</h2>
 <p>Point de départ : <code>npm audit</code> signalait 4 vulnérabilités dans Express. Elles ont été corrigées (Express 4.22.3, 0 vulnérabilité), puis tout le code a été passé en revue. <strong>12 failles corrigées</strong> :</p>
-<div class="tw"><table>
+<div class="tw" tabindex="0" role="region" aria-label="Tableau défilant 22"><table>
 <thead>
 <tr>
 <th>Faille</th>
@@ -1705,7 +1707,7 @@ outils/site/              sources du site (*.main.html) + build.py
 <p>Un bug de sauvegarde a aussi été trouvé grâce à un retour d'Enzo : la sauvegarde du jour n'était envoyée sur Discord qu'au moment de sa création. Si elle avait été créée avant la configuration du salon, elle n'était jamais envoyée. Désormais, le bot la renvoie tant qu'elle n'est pas bien arrivée.</p>
 <h2 id="ch-08-securite-et-audits-audit-n-5-ouvrir-le-panel-tout-le-monde-">Audit n°5 · Ouvrir le panel à tout le monde (29 octobre)</h2>
 <p>Question posée : « Entre le site et le panel, c'est sécurisé ? » Avant de retirer Cloudflare Access, le chemin complet a été revérifié point par point :</p>
-<div class="tw"><table>
+<div class="tw" tabindex="0" role="region" aria-label="Tableau défilant 23"><table>
 <thead>
 <tr>
 <th>Point vérifié</th>
@@ -1757,7 +1759,7 @@ outils/site/              sources du site (*.main.html) + build.py
 <h2 id="ch-08-securite-et-audits-audit-n-6-pentest-complet-31-octobre">Audit n°6 · Pentest complet (31 octobre)</h2>
 <p>Demande : « je veux un bot sans aucune faille ». Un test d'intrusion de mes propres services : revue du code du bot (permissions, entrées, données), tests en boîte noire du panel (CSRF, sessions, en-têtes, limites), revue du site public et de l'historique GitHub. Pour la disponibilité, seulement une revue du code et de la configuration : pas de test de charge, puisque Cloudflare et GitHub Pages ne m'appartiennent pas.</p>
 <p><strong>Résultat : aucune faille critique ni élevée.</strong> 2 problèmes moyens et 3 faibles :</p>
-<div class="tw"><table>
+<div class="tw" tabindex="0" role="region" aria-label="Tableau défilant 24"><table>
 <thead>
 <tr>
 <th>Problème</th>
@@ -1804,7 +1806,7 @@ outils/site/              sources du site (*.main.html) + build.py
 <section class="chap" id="ch-09-rgpd-et-verification"><p class="eyebrow">Chapitre 9</p><h2>Données personnelles et vérification Discord</h2>
 <p>Un bot présent sur plus de 75 serveurs doit demander la <strong>vérification</strong> de Discord. Enzo voulait que tout soit en ordre avant : code, pages légales et réglages du portail.</p>
 <h2 id="ch-09-rgpd-et-verification-ce-que-le-bot-a-d-changer">Ce que le bot a dû changer</h2>
-<div class="tw"><table>
+<div class="tw" tabindex="0" role="region" aria-label="Tableau défilant 25"><table>
 <thead>
 <tr>
 <th>Avant</th>
@@ -1841,7 +1843,7 @@ outils/site/              sources du site (*.main.html) + build.py
 <figure><img src="images/site-mentions-legales.jpg" alt="Page Mentions légales" loading="lazy"><figcaption>Page Mentions légales</figcaption></figure>
 <p>Ces pages sont aussi déclarées dans le portail développeur Discord (Terms of Service URL et Privacy Policy URL), ce qui les affiche sur le profil du bot et dans la fenêtre d'invitation.</p>
 <h2 id="ch-09-rgpd-et-verification-checklist-de-la-v-rification">Checklist de la vérification</h2>
-<div class="tw"><table>
+<div class="tw" tabindex="0" role="region" aria-label="Tableau défilant 26"><table>
 <thead>
 <tr>
 <th>Étape</th>
@@ -1889,7 +1891,7 @@ outils/site/              sources du site (*.main.html) + build.py
 <h2 id="ch-10-identite-et-communaute-la-direction-artistique">La direction artistique</h2>
 <p>Le logo de Cyber est un <strong>masque de démon cyberpunk rouge</strong>, avec un petit tracé de circuit imprimé sur le front. Toute l'identité découle de ce masque.</p>
 <figure><img src="images/logo-horizontal.jpg" alt="Logo horizontal" loading="lazy"><figcaption>Logo horizontal</figcaption></figure>
-<div class="tw"><table>
+<div class="tw" tabindex="0" role="region" aria-label="Tableau défilant 27"><table>
 <thead>
 <tr>
 <th>Élément</th>
@@ -1970,7 +1972,7 @@ outils/site/              sources du site (*.main.html) + build.py
 </ul>
 <h2 id="ch-10-identite-et-communaute-se-faire-conna-tre">Se faire connaître</h2>
 <p>Le 31 octobre et le 1er novembre, j'ai préparé la visibilité de Cyber :</p>
-<div class="tw"><table>
+<div class="tw" tabindex="0" role="region" aria-label="Tableau défilant 28"><table>
 <thead>
 <tr>
 <th>Levier</th>
@@ -2011,7 +2013,7 @@ outils/site/              sources du site (*.main.html) + build.py
 <section class="chap" id="ch-11-problemes-et-lecons"><p class="eyebrow">Chapitre 11</p><h2>Problèmes rencontrés et leçons apprises</h2>
 <p>Le carnet de bord (chapitre 2) raconte les problèmes dans l'ordre où ils sont arrivés. Ce chapitre les regroupe par type pour en tirer des leçons.</p>
 <h2 id="ch-11-problemes-et-lecons-probl-mes-techniques">Problèmes techniques</h2>
-<div class="tw"><table>
+<div class="tw" tabindex="0" role="region" aria-label="Tableau défilant 29"><table>
 <thead>
 <tr>
 <th>Problème</th>
@@ -2163,7 +2165,7 @@ outils/site/              sources du site (*.main.html) + build.py
 </table></div>
 <h2 id="ch-11-problemes-et-lecons-probl-mes-humains-et-d-organisation">Problèmes humains et d'organisation</h2>
 <p>Ce projet a aussi été une découverte : je ne code pas, et j'ai dû apprendre à piloter un projet technique, comprendre ce qu'on me proposait et faire moi-même toute la configuration (Discord, GitHub, OVH, Cloudflare, hébergeur).</p>
-<div class="tw"><table>
+<div class="tw" tabindex="0" role="region" aria-label="Tableau défilant 30"><table>
 <thead>
 <tr>
 <th>Situation</th>
@@ -2347,7 +2349,7 @@ outils/site/              sources du site (*.main.html) + build.py
 </ul>
 <a class="up" href="#top">↑ Haut de page</a></section>
 <section class="chap" id="ch-annexe-glossaire"><p class="eyebrow">Annexe</p><h2>Glossaire</h2>
-<div class="tw"><table>
+<div class="tw" tabindex="0" role="region" aria-label="Tableau défilant 31"><table>
 <thead>
 <tr>
 <th>Terme</th>
