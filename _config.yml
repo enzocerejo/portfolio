@@ -1,0 +1,8 @@
+# À quoi sert ce fichier : GitHub Pages construit le site avec l'outil Jekyll.
+# Cette liste lui dit quels fichiers NE PAS publier sur enzocerejo.fr
+# (notes pour les humains et pour Claude, carte du projet).
+exclude:
+  - README.md
+  - CLAUDE.md
+  - "**/README.md"
+  - graphify-out

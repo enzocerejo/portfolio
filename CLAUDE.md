@@ -15,3 +15,11 @@ Avant d'explorer ce dépôt, lis d'abord `graphify-out/GRAPH_REPORT.md` : c'est 
 - Enzo ne code pas : réponses en français, étapes clic par clic.
 - Ne jamais mettre d'adresse e-mail ni de secret dans le dépôt ou sur le site.
 - Ne jamais renommer ni supprimer un dépôt sans son accord.
+
+## Rangement du dépôt
+
+- Le plan des dossiers est dans `README.md` (tableau « Par où commencer ? »).
+- Un nouveau fichier va dans le dossier qui correspond à son utilité, jamais à la racine : images de la page d'accueil dans `assets/<thème>/`, doc Cyberbot dans `cyberbot/`.
+- Restent à la racine : `index.html`, `CNAME`, `robots.txt`, `sitemap.xml`, `_config.yml`, `CV_Enzo_Cerejo.pdf` (lien public, un PDF ne peut pas être redirigé).
+- Ne pas déplacer un fichier qui a une adresse publique (`/cyberbot/`, le CV) sans prévoir de redirection.
+- Noms de fichiers en minuscules, sans accents ni espaces.
