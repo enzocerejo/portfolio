@@ -8,6 +8,6 @@ La carte (graphe de connaissances) des deux dépôts réunis, le portfolio et Cy
 | [`graph.html`](graph.html) | La carte interactive, à ouvrir dans un navigateur. |
 | [`graph.json`](graph.json) | Le graphe complet, lisible par l'outil `graphify`. |
 
-La carte est une photo du projet au 9/11/2026 : elle peut être en retard sur les fichiers. Elle se régénère après un gros changement.
+La carte est une photo du projet au 11/11/2026 : elle peut être en retard sur les fichiers. Elle se régénère après un gros changement.
 
 [← Retour à l'accueil du dépôt](../README.md)
