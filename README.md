@@ -7,7 +7,7 @@ Ce dépôt contient le site **[enzocerejo.fr](https://enzocerejo.fr)** : le port
 | Je veux… | J'ouvre… |
 |---|---|
 | Voir ou modifier la page d'accueil du portfolio | [`index.html`](index.html) |
-| Trouver une image du site (certificats, aperçu réseaux sociaux) | [`assets/`](assets/README.md) |
+| Trouver une image ou une police du site (photo, captures, certificats, aperçu réseaux sociaux) | [`assets/`](assets/README.md) |
 | Lire la documentation du projet Cyberbot (FR et EN) | [`cyberbot/`](cyberbot/README.md) |
 | Télécharger le CV | [`CV_Enzo_Cerejo.pdf`](CV_Enzo_Cerejo.pdf) |
 | Comprendre comment tout le projet est relié (carte) | [`graphify-out/`](graphify-out/README.md) |
@@ -22,7 +22,7 @@ Ce dépôt contient le site **[enzocerejo.fr](https://enzocerejo.fr)** : le port
 | Dossier ou fichier | À quoi il sert, en langage courant |
 |---|---|
 | `index.html` | La page d'accueil. Elle contient le texte, le style et le script de la page. |
-| `assets/` | Les images utilisées par la page d'accueil, rangées par thème. |
+| `assets/` | Les images et les polices utilisées par la page d'accueil, rangées par thème. |
 | `cyberbot/` | La documentation du projet Cyberbot, en ligne sur enzocerejo.fr/cyberbot/. |
 | `CV_Enzo_Cerejo.pdf` | Le CV téléchargeable. Il reste à la racine pour que son lien public ne change pas. |
 | `graphify-out/` | La carte du projet (graphe de connaissances), pour s'y retrouver. Non publiée sur le site. |
